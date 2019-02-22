@@ -10,6 +10,6 @@ namespace OnlineShop.Interface
     public interface IRepository<T>
     {
         IEnumerable<T> GetAll();
-        IEnumerable<CarModel> CarModels { get; }
+      
     }
 }

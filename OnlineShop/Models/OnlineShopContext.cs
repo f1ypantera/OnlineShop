@@ -8,7 +8,7 @@ namespace OnlineShop.Models
 {
     public class OnlineShopContext :DbContext
     {
-        public OnlineShopContext(): base("DefaultConnection") { }
+        public OnlineShopContext(): base("OnlineShop") { }
         public DbSet<CarModel> CarModels { get; set; }
     }
 }

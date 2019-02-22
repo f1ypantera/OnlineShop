@@ -23,19 +23,14 @@ namespace OnlineShop.Controllers
         {
             this.carRepository = carRepository;
         }
-        public ActionResult Index(int? page)
-        {
-            int pageSize = 3;
-            int pageNumber = (page ?? 1);
-            return View(carRepository.GetAll().OrderBy(p => p.NameModel).ToPagedList(pageNumber, pageSize));
-        }
+       
         public ViewResult List(int? page)
         {
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             CarListViewModel carListViewModel = new CarListViewModel
             {
-                CarModels = carRepository.CarModels.OrderBy(p => p.NameModel).ToPagedList(pageNumber, pageSize)
+                CarModels = carRepository.GetAll().OrderBy(p => p.NameModel).ToPagedList(pageNumber, pageSize)
             };
       
             return View(carListViewModel);
