@@ -33,7 +33,12 @@ namespace OnlineShop.Controllers
         {
             int pageSize = 3;
             int pageNumber = (page ?? 1);
-            return View(carRepository.CarModels.OrderBy(p => p.NameModel).ToPagedList(pageNumber, pageSize));
+            CarListViewModel carListViewModel = new CarListViewModel
+            {
+                CarModels = carRepository.CarModels.OrderBy(p => p.NameModel).ToPagedList(pageNumber, pageSize)
+            };
+      
+            return View(carListViewModel);
         }
        
     }

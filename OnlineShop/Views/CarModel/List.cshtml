@@ -1,24 +1,21 @@
-﻿@model PagedList.IPagedList<OnlineShop.Models.CarModel>
-@using PagedList.Mvc;
+﻿@using OnlineShop.Models;
+
+@model CarListViewModel 
 
 @{
     ViewBag.Title = "List";
 }
 
 <h1>Список машин</h1>
-@foreach (var p in @Model)
+@foreach (var p in @Model.CarModels)
 {
-<div class="well">
-    <h4>
-        <strong><strong>@p.NameManufacturer @p.NameModel</strong></strong>
+    <div class="well">
+        <h4>
+            <strong><strong>@p.NameManufacturer @p.NameModel</strong></strong>
 
-        <span class="pull-right label label-primary">@p.Price.ToString("# $")</span>
-    </h4>
-    <p>@p.NameCategory</p>
-    <p>@p.Description</p>
-</div>
+            <span class="pull-right label label-primary">@p.Price.ToString("# $")</span>
+        </h4>
+        <p>@p.NameCategory</p>
+        <p>@p.Description</p>
+    </div>
 }
-
-Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

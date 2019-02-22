@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Models\CarListViewModel.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\OnlineShopContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
