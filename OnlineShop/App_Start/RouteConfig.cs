@@ -13,8 +13,12 @@ namespace OnlineShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-       
 
+            routes.MapRoute(
+            name: null,
+            url: "Page{page}",
+            defaults: new { controller = "CarModel", action = "List" }
+        );
 
             routes.MapRoute(
                 name: "Default",

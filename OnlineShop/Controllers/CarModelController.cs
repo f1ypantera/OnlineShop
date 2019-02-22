@@ -24,16 +24,22 @@ namespace OnlineShop.Controllers
             this.carRepository = carRepository;
         }
 
-        public ViewResult List(string category, int? page)
+        public ViewResult List(string category, int page = 1)
         {
             int pageSize = 3;
-            int pageNumber = (page ?? 1);
+           
             CarListViewModel carListViewModel = new CarListViewModel
             {
-                CarModels = carRepository.GetAll()
-                .Where(p => category == null || p.NameCategory == category)
+                CarModels = carRepository.GetAll()            
                 .OrderBy(p => p.NameModel)
-                .ToPagedList(pageNumber, pageSize),
+                .Skip((page-1)*pageSize)
+                .Take(pageSize),              
+                PageInfo = new PageInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = carRepository.GetAll().Count()
+                },
                 CurrentCategory = category
             };
       

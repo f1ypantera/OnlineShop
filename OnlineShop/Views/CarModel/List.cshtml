@@ -1,5 +1,5 @@
 ﻿@using OnlineShop.Models;
-
+@using OnlineShop.HtmlHelpers;
 @model CarListViewModel 
 
 @{
@@ -19,3 +19,6 @@
         <p>@p.Description</p>
     </div>
 }
+    <div class="btn-group pull-right" >
+        @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x }))
+    </div>
