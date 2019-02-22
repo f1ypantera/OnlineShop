@@ -23,7 +23,7 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="@Url.Action("Create","CarModels")">Create cars</a></li>                        
+                        <li><a href="@Url.Action("Create","CarModels")">Create cars</a></li>
                         <li><a href="@Url.Action("List","CarModel")">List of Cars</a></li>
                     </ul>
                 </li>
@@ -53,12 +53,14 @@
         </div>
         <div class="col-xs-8">
             @RenderBody()
-            <hr />
+
             <footer></footer>
         </div>
 
     </div>
-
+    <footer>
+        <p align="center">All rights reserved</p>
+    </footer>
 
 
     @Scripts.Render("~/bundles/jquery")
