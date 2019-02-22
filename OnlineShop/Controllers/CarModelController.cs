@@ -35,9 +35,6 @@ namespace OnlineShop.Controllers
             int pageNumber = (page ?? 1);
             return View(carRepository.CarModels.OrderBy(p => p.NameModel).ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
     }
 }
