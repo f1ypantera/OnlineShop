@@ -6,15 +6,18 @@
     ViewBag.Title = "Товары";
 }
 
-
+<h1>Список машин</h1>
 @foreach (var p in Model)
 {
-    <div>
-        <h3>@p.NameManufacturer @p.NameModel</h3>
-        <p>@p.NameCategory</p>
-        <p>@p.Description</p>
-        <h4>@p.Price.ToString("# $")</h4>
-    </div>
+<div class="well">
+    <h4>
+        <strong><strong>@p.NameManufacturer @p.NameModel</strong></strong>
+       
+        <span class="pull-right label label-primary">@p.Price.ToString("# $")</span>
+    </h4>
+    <p>@p.NameCategory</p>
+    <p>@p.Description</p>
+</div>
 }
 
 <br />
