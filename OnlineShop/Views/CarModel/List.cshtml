@@ -1,6 +1,6 @@
 ﻿@using OnlineShop.Models;
 @using OnlineShop.HtmlHelpers;
-@model CarListViewModel 
+@model CarListViewModel
 
 @{
     ViewBag.Title = "List";
@@ -19,6 +19,10 @@
         <p>@p.Description</p>
     </div>
 }
-    <div class="btn-group pull-right" >
-        @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x }))
-    </div>
+<div class="btn-group pull-left">
+
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x , category = Model.CurrentCategory }))
+</div>
+<div class="btn-group pull-right">
+    Страница @(Model.PageInfo.TotalPages < Model.PageInfo.CurrentPage ? 0 : Model.PageInfo.CurrentPage) из @Model.PageInfo.TotalPages
+</div>

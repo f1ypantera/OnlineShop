@@ -30,7 +30,8 @@ namespace OnlineShop.Controllers
            
             CarListViewModel carListViewModel = new CarListViewModel
             {
-                CarModels = carRepository.GetAll()            
+                CarModels = carRepository.GetAll()
+                .Where(p => category == null || p.NameCategory == category)
                 .OrderBy(p => p.NameModel)
                 .Skip((page-1)*pageSize)
                 .Take(pageSize),              
