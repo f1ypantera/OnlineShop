@@ -39,7 +39,9 @@ namespace OnlineShop.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
-                    TotalItems = carRepository.GetAll().Count()
+                    TotalItems = category == null ? carRepository.GetAll().Count() : 
+                    carRepository.GetAll().Where(c => c.NameCategory == category).Count()
+                    
                 },
                 CurrentCategory = category
             };

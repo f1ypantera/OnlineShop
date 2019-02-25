@@ -18,8 +18,10 @@ namespace OnlineShop.Controllers
             this.carRepository = carRepository;
 
         }
-        public PartialViewResult Menu()
+        public PartialViewResult Menu(string category = null)
         {
+            ViewBag.SelectedCategory = category;
+
             IEnumerable<string> categories = carRepository.GetAll()
                 .Select(m => m.NameCategory)
                 .Distinct()
