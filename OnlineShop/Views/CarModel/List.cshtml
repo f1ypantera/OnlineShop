@@ -9,17 +9,29 @@
 <h1>Список машин</h1>
 @foreach (var p in @Model.CarModels)
 {
-    <div class="well">
-        <h4>
-            <strong><strong>@p.NameManufacturer @p.NameModel</strong></strong>
+<div class="well">
+    <h4>
+        <strong>@p.NameManufacturer @p.NameModel</strong>
 
-            <span class="pull-right label label-primary">@p.Price.ToString("# $")</span>
-        </h4>
-        <p>@p.NameCategory</p>
+        <span class="pull-right label label-primary">@p.Price.ToString("# $")</span>
+    </h4>
+    <p>@p.NameCategory</p>
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {    
+            <div class="pull-right">               
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-success" value="Купить этот автомобиль" />
+            </div>            
+        }
         <p>@p.Description</p>
     </div>
 }
+
+
   
+
+
+
 
         <div class="btn-group pull-left">
 
