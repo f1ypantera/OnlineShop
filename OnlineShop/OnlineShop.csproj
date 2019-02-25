@@ -166,6 +166,7 @@
     <Compile Include="Controllers\CarModelController.cs" />
     <Compile Include="Controllers\CarModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,6 +223,7 @@
     <Content Include="Views\CarModels\Edit.cshtml" />
     <Content Include="Views\CarModels\Index.cshtml" />
     <Content Include="Views\CarModel\List.cshtml" />
+    <Content Include="Views\Navigation\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
