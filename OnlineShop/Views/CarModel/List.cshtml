@@ -12,12 +12,6 @@
     @Html.Partial("CarSummary",p)
 }
 
-
-  
-
-
-
-
         <div class="btn-group pull-left">
 
             @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))

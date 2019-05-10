@@ -11,12 +11,9 @@ namespace OnlineShop.Controllers
     public class NavigationController : Controller
     {
         private readonly IRepository<CarModel> carRepository;
-
-
         public NavigationController(IRepository<CarModel> carRepository)
         {
             this.carRepository = carRepository;
-
         }
         public PartialViewResult Menu(string category = null)
         {
@@ -27,11 +24,6 @@ namespace OnlineShop.Controllers
                 .Distinct()
                 .OrderBy(x => x);
             return PartialView(categories);
-        }
-
-
-      
-     
-       
+        }      
     }
 }

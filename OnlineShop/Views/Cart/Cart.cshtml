@@ -1,0 +1,38 @@
+﻿@model OnlineShop.ViewModels.CartViewModel
+
+@{
+    ViewBag.Title = "OnlineShop: ваша корзина";
+}
+
+<h2>Ваша корзина</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Машина</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Общая цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-left">@line.CarModel.NameModel</td>
+                <td class="text-right">@line.CarModel.Price.ToString("# $")</td>
+                
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Итого:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString("# $")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-warning" a href="@Url.Action("Index","Home")">Продолжить покупки</a>
+</div>
