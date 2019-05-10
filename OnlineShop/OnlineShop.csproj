@@ -168,11 +168,11 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Interface\IRepository.cs" />
-    <Compile Include="Models\CarListViewModel.cs" />
+    <Compile Include="ViewModels\CarListViewModel.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\OnlineShopContext.cs" />
-    <Compile Include="Models\PageInfo.cs" />
+    <Compile Include="Context\OnlineShopContext.cs" />
+    <Compile Include="HtmlHelpers\PageInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Repository.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
@@ -266,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Context\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
