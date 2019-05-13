@@ -268,6 +268,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="NewFolder1\" />
     <Folder Include="NewFolder2\" />
+    <Folder Include="NewFolder3\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
