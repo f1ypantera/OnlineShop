@@ -14,40 +14,42 @@ namespace OnlineShop.Controllers
 
         private readonly IRepository<CarModel> carRepository;
 
-        public CartController(IRepository<CarModel> carRepository)
-        {
-            this.carRepository = carRepository;
-        }
 
-        public ViewResult Cart(string returnUrl)
+        public ViewResult Index(string returnUrl)
         {
-            return View(new CartViewModel
+            return View(new CartIndexViewModel
             {
                 Cart = GetCart(),
                 ReturnUrl = returnUrl
             });
         }
-
-        public RedirectToRouteResult AddToCart(int carId, string returnUrl)
+        public CartController(IRepository<CarModel> carRepository)
         {
-            CarModel car = carRepository.GetAll().FirstOrDefault(g => g.CarModelId == carId);
+            this.carRepository = carRepository;
+        }
+        public RedirectToRouteResult AddToCart(int gameId, string returnUrl)
+        {
+            CarModel game = carRepository.GetAll()
+                .FirstOrDefault(g => g.CarModelId == gameId);
 
-            if (car != null)
+            if (game != null)
             {
-                GetCart().AddItem(car);
+                GetCart().AddItem(game, 1);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        public RedirectToRouteResult RemoveFromCart(int carId, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart(int gameId, string returnUrl)
         {
-            CarModel car = carRepository.GetAll().FirstOrDefault(g => g.CarModelId == carId);
+            CarModel game = carRepository.GetAll()
+                .FirstOrDefault(g => g.CarModelId == gameId);
 
-            if (car != null)
+            if (game != null)
             {
-                GetCart().RemoveLine(car);
+                GetCart().RemoveLine(game);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
+
         public Cart GetCart()
         {
             Cart cart = (Cart)Session["Cart"];
@@ -58,6 +60,6 @@ namespace OnlineShop.Controllers
             }
             return cart;
         }
-
     }
+
 }
