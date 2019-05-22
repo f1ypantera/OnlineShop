@@ -8,7 +8,7 @@
         <span class="pull-right label label-primary">@Model.Price.ToString("# $")</span>
     </h4>
     <p>@Model.NameCategory</p>
-    @using (Html.BeginForm("AddToCart", "Cart"))
+    @using (Html.BeginForm("AddToCart", "Cart", new { gameId = Model.CarModelId}))
     {
         <div class="pull-right">
             @Html.HiddenFor(model => model.CarModelId)
