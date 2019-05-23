@@ -11,7 +11,7 @@ namespace OnlineShop.Models
         private List<CartLine> lineCollection = new List<CartLine>();
         public IEnumerable<CartLine> Lines { get { return lineCollection; } }
 
-        public void AddItem(CarModel carModel,int quantity)
+        public void AddItem(CarModel carModel)
         {
             CartLine line = lineCollection
                 .Where(g => g.CarModel.CarModelId == carModel.CarModelId)
@@ -23,10 +23,7 @@ namespace OnlineShop.Models
                     CarModel = carModel
                 });
             }
-            else
-            {
-                line.quantity += quantity;
-            }
+           
 
         }
 
@@ -49,6 +46,5 @@ namespace OnlineShop.Models
     public class CartLine
     {
         public CarModel CarModel { get; set; }
-        public int quantity { get; set; }
     }
 }

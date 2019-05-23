@@ -8,33 +8,22 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Кол-во</th>
-            <th>Игра</th>
+            <th>Марка</th>
+            <th>Модель</th>
             <th class="text-right">Цена</th>
-            <th class="text-right">Общая цена</th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var line in Model.Cart.Lines)
         {
-            <tr>
-                <td class="text-center">@line.quantity</td>
-                <td class="text-left">@line.CarModel.NameModel</td>
-                <td class="text-right">@line.CarModel.Price.ToString("$")</td>
-                <td class="text-right">
-                    @((line.quantity * line.CarModel.Price).ToString("$"))
-                </td>
-            </tr>
+        <tr>
+            <td class="text-left">@line.CarModel.NameManufacturer</td>
+            <td class="text-left">@line.CarModel.NameModel</td>
+            <td class="text-right">@line.CarModel.Price</td>
+        </tr>
         }
     </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="text-right">Итого:</td>
-            <td class="text-right">
-                @Model.Cart.ComputeTotalValue().ToString("$")
-            </td>
-        </tr>
-    </tfoot>
 </table>
 
 <div class="text-center">

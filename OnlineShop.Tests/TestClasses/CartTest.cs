@@ -20,8 +20,8 @@ namespace OnlineShop.Tests
             Cart cart = new Cart();
 
             // Действие
-            cart.AddItem(car1, 1);
-            cart.AddItem(car2, 1);
+            cart.AddItem(car1);
+            cart.AddItem(car2);
             List<CartLine> results = cart.Lines.ToList();
 
             // Утверждение
