@@ -14,7 +14,12 @@ namespace OnlineShop.Controllers
 
         private readonly IRepository<CarModel> carRepository;
 
-     
+        public PartialViewResult Summary(Cart cart)
+        {
+            return PartialView(cart);
+        }
+
+
 
         public ViewResult Index(Cart cart,string returnUrl)
         {

@@ -3,28 +3,49 @@
 @{
     ViewBag.Title = "CarModel - корзина";
 }
-
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
 <h2>Ваша корзина</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Марка</th>
-            <th>Модель</th>
-            <th class="text-right">Цена</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var line in Model.Cart.Lines)
-        {
-        <tr>
-            <td class="text-left">@line.CarModel.NameManufacturer</td>
-            <td class="text-left">@line.CarModel.NameModel</td>
-            <td class="text-right">@line.CarModel.Price</td>
-        </tr>
-        }
-    </tbody>
-</table>
+<div class="well">
+    <table id="cartTable" class="table">
+        <thead>
+            <tr>
+                <th>Марка</th>
+                <th>Модель</th>
+                <th class="text-right">Цена</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var line in Model.Cart.Lines)
+            {
+                <tr>
+                    <td class="text-left">@line.CarModel.NameManufacturer</td>
+                    <td class="text-left">@line.CarModel.NameModel</td>
+                    <td class="text-right">@line.CarModel.Price</td>
+                    <td>
+                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                        {
+                            @Html.Hidden("GameId", line.CarModel.CarModelId)
+                            @Html.HiddenFor(x => x.ReturnUrl)
+                            <input class="btn btn-sm btn-warning" type="submit" value="Удалить" />
+                        }
+                    </td>
+                </tr>
+
+
+            }
+        </tbody>
+    </table>
+
+
+</div>
+
 
 <div class="text-center">
     <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
