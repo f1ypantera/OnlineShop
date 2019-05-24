@@ -35,6 +35,14 @@ namespace OnlineShop.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IRepository<CarModel>>().To<Repository<CarModel>>();
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager
+                   .AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                .WithConstructorArgument("settings", emailSettings);
         }
     }
 }

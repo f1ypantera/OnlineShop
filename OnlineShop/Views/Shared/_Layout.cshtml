@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - OnlineShop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Styles/ErrorStyles.css" rel="stylesheet" />
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -57,52 +58,7 @@
             </form>
         </div>
     </nav>
-    @*<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">AutoOnline</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
 
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Action
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Create","CarModels")">Create cars</a></li>
-                            <li><a href="@Url.Action("Index","CarModels")">List cars</a></li>
-                            <li><a href="@Url.Action("List","CarModel")">List of Cars</a></li>
-                            <li><a href="@Url.Action("Cart","Cart")">Cart</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="@Url.Action("Index","Home")">Index</a></li>
-                    <li><a href="@Url.Action("About","Home")">About</a></li>
-                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                </ul>
-                <form class="navbar-form navbar-right" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>*@
     <div class="row panel">
         <div id="categories" class="col-xs-2  ">
             @Html.Action("Menu", "Navigation")

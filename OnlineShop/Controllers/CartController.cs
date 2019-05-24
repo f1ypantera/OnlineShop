@@ -13,13 +13,39 @@ namespace OnlineShop.Controllers
     {
 
         private readonly IRepository<CarModel> carRepository;
-
+        private readonly IOrderProcessor orderProcessor;
+        public CartController(IRepository<CarModel> carRepository , IOrderProcessor orderProcessor)
+        {
+            this.carRepository = carRepository;
+            this.orderProcessor = orderProcessor;
+        }
         public PartialViewResult Summary(Cart cart)
         {
             return PartialView(cart);
         }
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Извините, ваша корзина пуста!");
+            }
 
-
+            if (ModelState.IsValid)
+            {
+                orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
+        }
 
         public ViewResult Index(Cart cart,string returnUrl)
         {
@@ -29,10 +55,7 @@ namespace OnlineShop.Controllers
                 ReturnUrl = returnUrl
             });
         }
-        public CartController(IRepository<CarModel> carRepository)
-        {
-            this.carRepository = carRepository;
-        }
+      
         public RedirectToRouteResult AddToCart(Cart cart,int gameId, string returnUrl)
         {
             CarModel game = carRepository.GetAll()
@@ -56,16 +79,7 @@ namespace OnlineShop.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        //public Cart GetCart()
-        //{
-        //    Cart cart = (Cart)Session["Cart"];
-        //    if (cart == null)
-        //    {
-        //        cart = new Cart();
-        //        Session["Cart"] = cart;
-        //    }
-        //    return cart;
-        //}
+     
     }
 
 }

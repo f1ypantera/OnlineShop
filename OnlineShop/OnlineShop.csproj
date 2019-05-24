@@ -167,8 +167,11 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\EmailSettings.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Interface\IOrderProcessor.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="ViewModels\CarListViewModel.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -232,6 +235,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Styles\ErrorStyles.css" />
     <Content Include="Styles\MyStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -266,6 +270,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Summary.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\Completed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
