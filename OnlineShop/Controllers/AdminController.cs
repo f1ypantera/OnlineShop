@@ -11,17 +11,17 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Controllers
 {
-    public class CarModelsController : Controller
+    public class AdminController : Controller
     {
         private OnlineShopContext db = new OnlineShopContext();
 
-        // GET: CarModels
+        // GET: Admin
         public async Task<ActionResult> Index()
         {
             return View(await db.CarModels.ToListAsync());
         }
 
-        // GET: CarModels/Details/5
+        // GET: Admin/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // GET: CarModels/Create
+        // GET: Admin/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CarModels/Create
+        // POST: Admin/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +59,7 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // GET: CarModels/Edit/5
+        // GET: Admin/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // POST: CarModels/Edit/5
+        // POST: Admin/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +90,7 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // GET: CarModels/Delete/5
+        // GET: Admin/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -105,7 +105,7 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // POST: CarModels/Delete/5
+        // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
