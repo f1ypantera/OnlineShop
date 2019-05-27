@@ -26,5 +26,24 @@ namespace OnlineShop.Services
         {
             get { return onlineShopContext.CarModels; }
         }
+
+        public void Save(CarModel carModel)
+        {
+            if (carModel.CarModelId == 0)
+                onlineShopContext.CarModels.Add(carModel);
+            else
+            {
+                CarModel car = onlineShopContext.CarModels.Find(carModel.CarModelId);
+                if(car!=null)
+                {
+                    car.NameModel = carModel.NameModel;
+                    car.NameManufacturer = carModel.NameManufacturer;
+                    car.NameCategory = carModel.NameCategory;
+                    car.Description = carModel.Description;
+                    car.Price = carModel.Price;
+                }
+            }
+            onlineShopContext.SaveChanges();
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // GET: Admin/Edit/5
+   
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,9 +74,7 @@ namespace OnlineShop.Controllers
             return View(carModel);
         }
 
-        // POST: Admin/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "CarModelId,NameModel,NameManufacturer,NameCategory,Description,Price")] CarModel carModel)
@@ -84,10 +82,16 @@ namespace OnlineShop.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(carModel).State = EntityState.Modified;
+
                 await db.SaveChangesAsync();
+                TempData["message"] = string.Format("Изменения  \"{0}\" были сохранены", carModel.CarModelId);
                 return RedirectToAction("Index");
             }
-            return View(carModel);
+            else
+            {
+                return View(carModel);
+            }
+     
         }
 
         // GET: Admin/Delete/5

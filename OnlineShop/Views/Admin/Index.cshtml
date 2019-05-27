@@ -1,57 +1,43 @@
 ﻿@model IEnumerable<OnlineShop.Models.CarModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Админ панель: список товаров";
 }
 
-<h2>Index</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Список игр</h3>
+    </div>
+    <div>
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success">@TempData["message"]</div>
+        }
+ 
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th class="text-right">ID</th>
+                <th>Название</th>
+                <th class="text-right">Цена</th>
+                <th class="text-center">Действия</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">@item.CarModelId</td>
+                    <td class="text-center">@Html.ActionLink(item.NameModel, "Edit", new { id = item.CarModelId })</td>
+                    <td class="text-center">@item.Price.ToString()</td>
+                    <td class="text-center">@Html.ActionLink("Удалить", "Delete", new { id = item.CarModelId })</td>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NameModel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NameManufacturer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NameCategory)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameModel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameManufacturer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameCategory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CarModelId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CarModelId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CarModelId })
-        </td>
-    </tr>
-}
-
-</table>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Добавить игру", "Create", null,
+            new { @class = "btn btn-default" })
+    </div>
+</div>
