@@ -11,6 +11,7 @@ using OnlineShop.Models;
 
 namespace OnlineShop.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private OnlineShopContext db = new OnlineShopContext();

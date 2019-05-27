@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CarModelController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -168,9 +169,12 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\CartModelBinder.cs" />
     <Compile Include="Infrastructure\EmailSettings.cs" />
+    <Compile Include="Infrastructure\FormAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Interface\IAuthProvider.cs" />
     <Compile Include="Interface\IOrderProcessor.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
     <Compile Include="ViewModels\CarListViewModel.cs" />
     <Compile Include="Models\CarModel.cs" />
@@ -275,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

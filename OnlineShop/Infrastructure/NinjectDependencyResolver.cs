@@ -40,7 +40,7 @@ namespace OnlineShop.Infrastructure
                 WriteAsFile = bool.Parse(ConfigurationManager
                    .AppSettings["Email.WriteAsFile"] ?? "false")
             };
-
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
         }
