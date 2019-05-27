@@ -56,7 +56,7 @@
         </dl>
     </div>
     <div class="panel-footer">
-        @Html.ActionLink("Редактировать", "Edit", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.CarModelId }, new { @class = "btn btn-primary" })
         @Html.ActionLink("Отменить изменения и вернуться к списку", "Index", null, new
         {
             @class = "btn btn-default"

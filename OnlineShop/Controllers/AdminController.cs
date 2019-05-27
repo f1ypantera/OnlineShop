@@ -78,10 +78,18 @@ namespace OnlineShop.Controllers
     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CarModelId,NameModel,NameManufacturer,NameCategory,Description,Price")] CarModel carModel)
+        public async Task<ActionResult> Edit([Bind(Include = "CarModelId,NameModel,NameManufacturer,NameCategory,Description,Price")] CarModel carModel, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
+                if (image != null)
+                {
+                    carModel.ImageMimeType = image.ContentType;
+                    carModel.ImageData = new byte[image.ContentLength];
+                    image.InputStream.Read(carModel.ImageData, 0, image.ContentLength);
+                }
+
+
                 db.Entry(carModel).State = EntityState.Modified;
 
                 await db.SaveChangesAsync();

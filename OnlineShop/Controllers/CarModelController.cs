@@ -23,7 +23,20 @@ namespace OnlineShop.Controllers
         {
             this.carRepository = carRepository;
         }
+        public FileContentResult GetImage(int gameId)
+        {
+            CarModel car = carRepository.GetAll()
+                .FirstOrDefault(g => g.CarModelId == gameId);
 
+            if (car != null)
+            {
+                return File(car.ImageData, car.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public ViewResult List(string category, int page = 1)
         {
             int pageSize = 3;

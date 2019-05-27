@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OnlineShop.Models
 {
     public class CarModel
     {
+        [Key]
+        [Display(Name = "ID")]
+        [HiddenInput(DisplayValue = false)]
         public int CarModelId { get; set; }
         [Display(Name = "Модель")]
         [Required(ErrorMessage ="Введите модель")]
