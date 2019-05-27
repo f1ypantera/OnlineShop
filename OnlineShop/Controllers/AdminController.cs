@@ -116,6 +116,7 @@ namespace OnlineShop.Controllers
         {
             CarModel carModel = await db.CarModels.FindAsync(id);
             db.CarModels.Remove(carModel);
+            TempData["message"] = string.Format("Модель  \"{0}\" была удалена", carModel.CarModelId);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
