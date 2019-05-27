@@ -54,7 +54,7 @@
                     <label>Картинка</label>
                     <a class='btn' href='javascript:;'>
                         Выберите файл...
-                        <input type="file" name="Image" size="40"
+                        <input type="file" name="Image" size="4000"
                                style="position:absolute;z-index:2;top:0;
                                 left:0;filter: alpha(opacity=0); opacity:0;
                                 background-color:transparent;color:transparent;"
@@ -68,9 +68,8 @@
                 }
                 else
                 {
-                    <img class="img-thumbnail" width="150" height="150"
-                         src="@Url.Action("GetImage", "Game",
-                        new { Model.CarModelId })" />
+                    <img class="img-thumbnail" width="1200" height="1200"
+                         src="@Url.Action("GetImage", "CarModel", new { gameId = Model.CarModelId })" />
                 }
             </div>
         </div>
