@@ -2,13 +2,22 @@
 
 
 <div class="well">
+
+    @if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-right: 10px">
+            <img class="img-thumbnail" width="75" height="75"
+                 src="@Url.Action("GetImage", "CarModel",
+                new { gameId = Model.CarModelId })" />
+        </div>
+    }
     <h4>
         <strong>@Model.NameManufacturer @Model.NameModel</strong>
 
         <span class="pull-right label label-primary">@Model.Price.ToString("# $")</span>
     </h4>
     <p>@Model.NameCategory</p>
-    @using (Html.BeginForm("AddToCart", "Cart", new { gameId = Model.CarModelId}))
+    @using (Html.BeginForm("AddToCart", "Cart", new { gameId = Model.CarModelId }))
     {
         <div class="pull-right">
             @Html.HiddenFor(model => model.CarModelId)
