@@ -41,7 +41,7 @@ namespace OnlineShop.Controllers
                     using (OnlineShopContext db = new OnlineShopContext())
                     {
 
-                        db.UserAccounts.Add(new UserAccount { UserName = registration.UserName, Email = registration.Email, Password = registration.Password, PasswordConfirm = registration.PasswordConfirm, Name = registration.Name, Surname = registration.Surname, Year = registration.Year, RoleID = 2 });
+                        db.UserAccounts.Add(new UserAccount { UserName = registration.UserName, Email = registration.Email, Password = registration.Password, PasswordConfirm = registration.PasswordConfirm, Name = registration.Name, Surname = registration.Surname, Year = registration.Year, RoleID = 1 });
                         await db.SaveChangesAsync();
 
                         userAccount = await db.UserAccounts.Where(u => u.UserName == registration.UserName && u.Password == registration.Password).FirstOrDefaultAsync();
