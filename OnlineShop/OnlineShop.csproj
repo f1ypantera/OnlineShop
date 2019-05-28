@@ -175,7 +175,9 @@
     <Compile Include="Interface\IOrderProcessor.cs" />
     <Compile Include="Interface\IRepository.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\ShippingDetails.cs" />
+    <Compile Include="Models\UserAccount.cs" />
     <Compile Include="ViewModels\CarListViewModel.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -277,6 +279,9 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Registration.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

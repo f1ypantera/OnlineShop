@@ -46,8 +46,30 @@
                 </li>
 
             </ul>
-        
-         
+            <ul class="nav navbar-nav navbar-right">
+
+                @if (User.Identity.IsAuthenticated && User.Identity.Name != "Admin")
+                {
+
+                    <li>  <a href="@Url.Action("Edit", "Account")">Добро пожаловать @User.Identity.Name</a></li>
+                    <li> @Html.ActionLink("Logout", "Logout", "Account")</li>
+
+                }
+                else if (User.Identity.Name != "Admin")
+                {
+
+                    <li><a href="@Url.Action("Registration", "Account")"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                }
+                else if (User.Identity.Name == "Admin")
+                {
+                    <li><a href="@Url.Action("Index", "UserAccountss")">Страница Админа</a></li>
+                    <li> @Html.ActionLink("Logout", "Logout", "Account")</li>
+                }
+
+            </ul>
+
+
 
             <form class="form-inline my-2 my-lg-0">
 
