@@ -6,16 +6,21 @@
     ViewBag.Title = "List";
 }
 
-<h1>Список машин</h1>
+
+
 @foreach (var p in @Model.CarModels)
 {
-    @Html.Partial("CarSummary",p)
+
+    @Html.Partial("CarSummary", p)
 }
 
-        <div class="btn-group pull-left">
 
-            @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
-        </div>
-        <div class="btn-group pull-right">
-            Страница @(Model.PageInfo.TotalPages < Model.PageInfo.CurrentPage ? 0 : Model.PageInfo.CurrentPage) из @Model.PageInfo.TotalPages
-        </div>
+
+
+<div class="btn-group pull-left">
+
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>
+<div class="btn-group pull-right">
+    Страница @(Model.PageInfo.TotalPages < Model.PageInfo.CurrentPage ? 0 : Model.PageInfo.CurrentPage) из @Model.PageInfo.TotalPages
+</div>

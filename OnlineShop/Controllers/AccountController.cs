@@ -95,7 +95,7 @@ namespace OnlineShop.Controllers
         {
             Session["LoginSuccess"] = null;
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("List", "CarModel");
         }
         public async Task<ActionResult> Edit()
         {
@@ -142,7 +142,7 @@ namespace OnlineShop.Controllers
             userAccount = await db.UserAccounts.FirstOrDefaultAsync((a) => a.UserName == username);
             db.UserAccounts.Remove(userAccount);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("List", "CarModel");
         }
 
 
