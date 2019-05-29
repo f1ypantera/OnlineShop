@@ -1,14 +1,15 @@
 ﻿@model OnlineShop.Models.Cart
 
 
-<div class="navbar-right">
+@*<div class="navbar-right">
     @Html.ActionLink("Заказать", "Index", "Cart",
     new { returnUrl = Request.Url.PathAndQuery },
     new { @class = "btn btn-default navbar-btn" })
-</div>
+</div>*@
 
-<div class="navbar-text navbar-right">
-    <b>Ваша корзина:</b>
+<div class="navbar-right">
+    @Html.ActionLink("Корзина", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery })
     @Model.Lines.Count() машин,
     @Model.ComputeTotalValue()
 </div>
