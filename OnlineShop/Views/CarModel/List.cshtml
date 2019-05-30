@@ -11,16 +11,16 @@
 @foreach (var p in @Model.CarModels)
 {
 
-    @Html.Partial("CarSummary", p)
+    @Html.Partial("CarSummary", p )
 }
 
 
 
 
-<div class="btn-group pull-left">
+<div class="btn-group pull-left  ">
 
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory, @class = "btn btn-danger" }))
 </div>
-<div class="btn-group pull-right">
+<div class="btn-group pull-right ">
     Страница @(Model.PageInfo.TotalPages < Model.PageInfo.CurrentPage ? 0 : Model.PageInfo.CurrentPage) из @Model.PageInfo.TotalPages
 </div>

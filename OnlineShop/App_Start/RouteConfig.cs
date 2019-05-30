@@ -44,7 +44,7 @@ namespace OnlineShop
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "CarModel", action = "List", id = UrlParameter.Optional }
             );
          //   routes.MapRoute(null, "{controller}/{action}");
         }

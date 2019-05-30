@@ -13,7 +13,7 @@ namespace OnlineShop.Models
         public int AccountId { get; set; }
 
         [Required]
-        [Display(Name = "Имя пользователя")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Введите свой Имейл")]
@@ -22,22 +22,22 @@ namespace OnlineShop.Models
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Пароль")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
         [Required]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         [DataType(DataType.Password)]
-        [Display(Name = "Потвердите пароль")]
+        [Display(Name = "Confirm Password")]
         public string PasswordConfirm { get; set; }
 
 
-        [Display(Name = "Имя")]
+        [Display(Name = "Nane")]
         public string Name { get; set; }
 
-        [Display(Name = "Фамилия")]
+        [Display(Name = "Surname")]
         public string Surname { get; set; }
 
-        [Display(Name = "Год Рождения")]
+        [Display(Name = "Year")]
         public int Year { get; set; }
 
     }

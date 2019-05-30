@@ -49,7 +49,7 @@ namespace OnlineShop.Controllers
                     if (userAccount != null)
                     {
                         FormsAuthentication.SetAuthCookie(registration.UserName, true);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("List", "CarModel");
                     }
                 }
                 else
@@ -81,7 +81,7 @@ namespace OnlineShop.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(login.UserName, true);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("List", "CarModel");
                 }
                 else
                 {
@@ -151,31 +151,6 @@ namespace OnlineShop.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-        //public ViewResult Login()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult Login(Login model, string returnUrl)
-        //{
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (authProvider.Authenticate(model.UserName, model.Password))
-        //        {
-        //            return Redirect(returnUrl ?? Url.Action("Index", "Admin"));
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError("", "Неправильный логин или пароль");
-        //            return View();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
+        
     }
 }

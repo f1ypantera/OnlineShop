@@ -13,19 +13,19 @@ namespace OnlineShop.Models
         [Display(Name = "ID")]
         [HiddenInput(DisplayValue = false)]
         public int CarModelId { get; set; }
-        [Display(Name = "Модель")]
+        [Display(Name = "Model")]
         [Required(ErrorMessage ="Введите модель")]
         public string NameModel { get; set; }
-        [Display(Name = "Производитель")]
+        [Display(Name = "Manufacturer")]
         [Required(ErrorMessage = "Введите производителя")]
         public string NameManufacturer { get; set; }
-        [Display(Name = "Категория")]
+        [Display(Name = "Category")]
         [Required(ErrorMessage = "Введите категорию")]
         public string NameCategory { get; set; }
-        [Display(Name = "Описание")]
+        [Display(Name = "Description")]
         [Required(ErrorMessage = "Введите описание")]
         public string Description { get; set; }
-        [Display(Name = "Цена $$$")]
+        [Display(Name = "Price $$$")]
         [Required(ErrorMessage = "Введите цену")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Пожалуйста, введите положительное значение для цены")]
         public decimal Price { get; set; }
